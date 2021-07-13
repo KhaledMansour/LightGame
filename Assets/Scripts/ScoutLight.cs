@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum LightsType
 {
@@ -12,18 +10,18 @@ public abstract class Light : MonoBehaviour
 	[SerializeField]
 	private LayerMask obstaclesMask;
 	[SerializeField]
-	float viewDistance;
+	private float viewDistance;
 	[SerializeField]
-	float lightFOV;
+	private float lightFOV;
 	[SerializeField]
-	float startAngle;
+	private float startAngle;
 	private Mesh mesh;
 	private Vector3 origin;
-	int rayCount = 50;
-	float angle = 0f;
-	Vector3[] vertices;
-	Vector2[] uv;
-	int[] triangles;
+	private int rayCount = 50;
+	private float angle = 0f;
+	private Vector3[] vertices;
+	private Vector2[] uv;
+	private int[] triangles;
 
 	private void Awake()
 	{
@@ -35,7 +33,7 @@ public abstract class Light : MonoBehaviour
 		Draw ();
 		gameObject.AddComponent<MeshCollider> ();
 	}
-	
+
 	public void Draw()
 	{
 		mesh.Clear ();
@@ -47,6 +45,7 @@ public abstract class Light : MonoBehaviour
 		vertices[0] = origin;
 		int vertexIndex = 1;
 		int triangleIndex = 0;
+		// this stuff if we need to put obstacle to obstructs the passage of light in hard levels
 		for (int i = 0; i <= rayCount; i++)
 		{
 			Vector3 vertex;
@@ -62,7 +61,7 @@ public abstract class Light : MonoBehaviour
 
 			vertices[vertexIndex] = vertex;
 			Debug.DrawRay (transform.position, GetVectorFromAngle (angle) * viewDistance, Color.red);
-
+			/////////////////////////////////////////////////////////////////////////////	
 
 			if (i > 0)
 			{
@@ -78,14 +77,6 @@ public abstract class Light : MonoBehaviour
 		mesh.uv = uv;
 		mesh.triangles = triangles;
 	}
-
-	//private void LateUpdate()
-	//{
-	//	Draw ();
-	//	mesh.vertices = vertices;
-	//	mesh.uv = uv;
-	//	mesh.triangles = triangles;
-	//}
 
 	private Vector3 GetVectorFromAngle(float angle)
 	{
@@ -107,5 +98,5 @@ public abstract class Light : MonoBehaviour
 }
 public class ScoutLight : Light
 {
-     
+
 }

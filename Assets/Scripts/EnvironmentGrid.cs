@@ -7,13 +7,13 @@ public class EnvironmentGrid : MonoBehaviour
 {
 	// Start is called before the first frame update
 	[SerializeField]
-	float xBoundary;
+	private float xBoundary;
 	[SerializeField]
-	float YBoundary;
+	private float YBoundary;
 	[SerializeField]
-	EnvironmentGridItem gridItemPrefab;
+	private EnvironmentGridItem gridItemPrefab;
 	[SerializeField]
-	List<EnvironmentGridItem> observersGridItems;
+	private List<EnvironmentGridItem> observersGridItems;
 	private Vector3 gridItemScale;
 	public static EnvironmentGrid instance;
 	private bool isLightDrag;

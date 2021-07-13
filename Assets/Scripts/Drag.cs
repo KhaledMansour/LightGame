@@ -12,7 +12,7 @@ public class Drag : MonoBehaviour
 	[SerializeField]
 	Slider slider;
 	private float startAngle;
-	private int sliderRange = 90; 
+	private int sliderRange = 90;
 	private void Start()
 	{
 		if (slider)
@@ -26,11 +26,13 @@ public class Drag : MonoBehaviour
 	{
 		Invoke ("OnAngleSliderChanged", 0.3f);
 	}
-	void OnAngleSliderChanged()
+
+	private void OnAngleSliderChanged()
 	{
 		transform.rotation = Quaternion.Euler (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, startAngle + slider.value * sliderRange);
 	}
-	void OnMouseDown()
+
+	private void OnMouseDown()
 	{
 		zAxis = Camera.main.WorldToScreenPoint (gameObject.transform.position).z;
 		mOffset = gameObject.transform.position - GetMouseAsWorldPoint ();
@@ -42,7 +44,8 @@ public class Drag : MonoBehaviour
 		mousePoint.z = zAxis;
 		return Camera.main.ScreenToWorldPoint (mousePoint);
 	}
-	void OnMouseDrag()
+
+	private void OnMouseDrag()
 	{
 		var targetPos = GetMouseAsWorldPoint () + mOffset;
 		targetPos = new Vector3 (Mathf.Clamp (targetPos.x, -xBoundary, xBoundary), Mathf.Clamp (targetPos.y, -yBoundary, yBoundary), targetPos.z);

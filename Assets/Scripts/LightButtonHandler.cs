@@ -7,22 +7,18 @@ public class LightButtonHandler : MonoBehaviour
 {
 	// Start is called before the first frame update
 	[SerializeField]
-	GameObject lightObject;
+	private GameObject lightObject;
 	[SerializeField]
-	Vector3 startPos;
-	Button lightButton;
+	private Vector3 startPos;
+	private Button lightButton;
 
-	//public void Init(GameObject lightObject, Vector3 startPos, Button lightButton)
-	//{
-
-	//}
-    void Start()
+    private void Start()
     {
 		lightButton = GetComponent<Button> ();
 		lightButton.onClick.AddListener (OnLightSelected);
     }
 
-	void OnLightSelected()
+	private void OnLightSelected()
 	{
 		lightObject.SetActive (true);
 		lightObject.transform.position = startPos;

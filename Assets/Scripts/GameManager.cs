@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// if we will gonna made many levels generated from the code
 //[System.Serializable]
 //public class Level
 //{
@@ -22,13 +23,13 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	[SerializeField]
-	Material defaultMaterial;
+	private Material defaultMaterial;
 	[SerializeField]
-	SpriteRenderer levelBG;
+	private SpriteRenderer levelBG;
 	private bool isLevelCompleted;
 	[SerializeField]
-	List<Animator> levelCharacterAnimation;
-    void Start()
+	private List<Animator> levelCharacterAnimation;
+    private void Start()
     {
 		if (instance)
 		{
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
 			OnCompleteLevel ();
 		}
 	}
+
 	public void OnCompleteLevel()
 	{
 		if (isLevelCompleted)

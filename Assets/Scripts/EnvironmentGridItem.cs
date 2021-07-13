@@ -5,19 +5,9 @@ using UnityEngine;
 public class EnvironmentGridItem : MonoBehaviour
 {
 	[SerializeField]
-	bool isDrag;
+	private bool isDrag;
 	[SerializeField]
-	bool isRecevingLight;
-
-	//private void OnTriggerEnter(Collider other)
-	//{
-	//	Debug.LogError (other.gameObject.name);
-	//}
-
-	//private void OnTriggerExit(Collider other)
-	//{
-	//	isRecevingLight = false;
-	//}
+	private bool isRecevingLight;
 
 	private void OnTriggerStay(Collider other)
 	{

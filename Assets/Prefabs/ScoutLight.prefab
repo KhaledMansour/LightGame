@@ -465,7 +465,6 @@ MonoBehaviour:
   xBoundary: 2.8
   yBoundary: 3.9
   slider: {fileID: 5638725017830152425}
-  startAngle: 0
 --- !u!135 &5638725018141140193
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -526,7 +525,6 @@ GameObject:
   - component: {fileID: 5638725018458938389}
   - component: {fileID: 5638725018458938384}
   - component: {fileID: 5638725018458938387}
-  - component: {fileID: 5638725018458938386}
   - component: {fileID: 5638725018458938385}
   m_Layer: 0
   m_Name: LightMesh
@@ -596,26 +594,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5638725018458938386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5638725018458938388}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960daf15a7b27e34e8639999eee92e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclesMask:
-    serializedVersion: 2
-    m_Bits: 256
-  enableDraw: 1
-  viewDistance: 4
-  fov: 90
-  vertices: []
-  triangles: 
 --- !u!114 &5638725018458938385
 MonoBehaviour:
   m_ObjectHideFlags: 0
