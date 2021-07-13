@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,22 +11,24 @@ public class Drag : MonoBehaviour
 	private float yBoundary;
 	[SerializeField]
 	Slider slider;
-
+	private float startAngle;
+	private int sliderRange = 90; 
 	private void Start()
 	{
 		if (slider)
 		{
 			slider.onValueChanged.AddListener (delegate { OnSliderValueChanged (); });
 		}
+		startAngle = transform.eulerAngles.z;
 	}
 
 	private void OnSliderValueChanged()
 	{
-		Invoke ("chane", 0.3f);
+		Invoke ("OnAngleSliderChanged", 0.3f);
 	}
-	void chane()
+	void OnAngleSliderChanged()
 	{
-		transform.rotation = Quaternion.Euler (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, slider.value * 90);
+		transform.rotation = Quaternion.Euler (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, startAngle + slider.value * sliderRange);
 	}
 	void OnMouseDown()
 	{
@@ -46,7 +46,7 @@ public class Drag : MonoBehaviour
 	{
 		var targetPos = GetMouseAsWorldPoint () + mOffset;
 		targetPos = new Vector3 (Mathf.Clamp (targetPos.x, -xBoundary, xBoundary), Mathf.Clamp (targetPos.y, -yBoundary, yBoundary), targetPos.z);
-		transform.position = targetPos ;
+		transform.position = targetPos;
 		EnvironmentGrid.instance.LightDragingStatus (true);
 		//EnvironmentGrid.instance.spawnedGridItems.ForEach (x => x.OnLightDragged ());
 	}

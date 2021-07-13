@@ -1,33 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-//public abstract class Light
-//{
-//	public int lightFOV { get;private set; }
-//	public int viewDistance { get;private set; }
-//	public Light(int fov, int distance)
-//	{
-//		lightFOV = fov;
-//		viewDistance = viewDistance;
-//	}
-//}
-
-//public class ScoutLight : Light
-//{
-//	public ScoutLight(int fov, int distance):base(fov, distance)
-//	{
-
-//	}
-//}
-public enum LightsType
-{
-	Scout, Candle
-}
-
+//[System.Serializable]
 //public class Level
 //{
-//	public lis
+//	public List<LightProps> LightProps;
+//}
+
+//[System.Serializable]
+//public class LightProps
+//{
+//	public LightsType lightType;
+//	public float Fov;
+//	public float ViewDistance;
+//	public float startLightAngle;
 //}
 
 public class GameManager : MonoBehaviour
@@ -86,5 +74,10 @@ public class GameManager : MonoBehaviour
 			item.enabled = true;
 			item.GetComponent<SpriteRenderer> ().material = defaultMaterial;
 		}
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene ("Level1");
 	}
 }
